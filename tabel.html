@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Waifu - Tabel</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url(background.png);
+            display: flex;
+        }
+
+            .sidebar {
+          width: 300px; /* Perbesar sidebar */
+          height: 100vh;
+          background-color: rgba(0, 0, 0, 0.7);
+          position: fixed; /* Posisi fixed agar mengikuti scroll */
+          top: 0;
+          left: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 20px;
+          z-index: 2; /* Letakkan sidebar di atas overlay */
+        }
+
+        .sidebar a {
+          width: 90%;
+          padding: 20px; /* Perbesar padding */
+          margin: 15px 0; /* Tambahkan jarak antar elemen */
+          text-align: left;
+          text-decoration: none;
+          color: white;
+          font-size: 20px; /* Perbesar font */
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+        }
+
+        .sidebar a i {
+          margin-right: 12px;
+        }
+
+        .sidebar a:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .content {
+            margin-left: 320px; /* Sesuaikan margin kiri dengan ukuran sidebar */
+            padding: 40px; /* Perbesar padding */
+            text-align: center;
+            color: white;
+            width: calc(100% - 320px); /* Mengatur lebar konten agar tidak tertutup sidebar */
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-y: auto;
+            height: 400px; /* Batasi tinggi tabel */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        thead th {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            position: sticky; /* Header tetap */
+            top: 0;
+        }
+
+        tbody td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            color: black; /* Mengubah warna tulisan menjadi hitam */
+        }
+
+        /* Warna berbeda untuk baris genap dan ganjil */
+        tbody tr:nth-child(odd) {
+            background-color: #ffcccb; /* Warna pink untuk baris ganjil */
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #add8e6; /* Warna biru muda untuk baris genap */
+        }
+
+        /* Efek ketika baris disorot */
+        tbody tr:hover {
+            background-color: #d0e7ff; /* Warna saat baris disorot */
+        }
+
+        /* Tambahan gaya untuk tombol hapus */
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+
+@media (max-width: 575.98px) { /* XS: layar sangat kecil */
+        body {
+            flex-direction: column; /* Ubah flex jadi kolom agar konten berurutan vertikal */
+            padding: 10px;
+        }
+        
+        .sidebar {
+            width: 100%; /* Sidebar full-width pada layar kecil */
+            height: auto; /* Tidak fixed */
+            position: static; /* Posisi tidak tetap */
+        }
+
+        .content {
+            margin-left: 0; /* Konten mengikuti sidebar di atasnya */
+            padding: 10px;
+            width: 100%;
+        }
+
+        .table-container {
+            height: auto; /* Hapus pembatasan tinggi tabel */
+        }
+
+        table thead th, tbody td {
+            font-size: 12px; /* Kurangi ukuran font */
+        }
+
+        .sidebar a {
+            font-size: 16px; /* Kurangi ukuran font di sidebar */
+        }
+    }
+
+    @media (min-width: 576px) and (max-width: 767.98px) { /* SM: layar kecil */
+        .sidebar {
+            width: 250px; /* Sidebar lebih kecil */
+        }
+
+        .content {
+            margin-left: 270px;
+        }
+
+        table thead th, tbody td {
+            font-size: 14px;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 991.98px) { /* MD: layar sedang */
+        .sidebar {
+            width: 280px; /* Sedikit lebih besar dari SM */
+        }
+
+        .content {
+            margin-left: 300px; /* Margin sesuai ukuran sidebar */
+        }
+
+        table thead th, tbody td {
+            font-size: 16px;
+        }
+    }
+
+    @media (min-width: 992px) { /* LG: layar besar */
+        .sidebar {
+            width: 300px;
+        }
+
+        .content {
+            margin-left: 320px;
+        }
+
+        table thead th, tbody td {
+            font-size: 18px;
+        }
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="index.html">
+            <i class="fas fa-home"></i> Halaman Utama
+        </a>
+        <a href="formulir.html">
+            <i class="fas fa-clipboard"></i> Halaman Formulir
+        </a>
+        <a href="tabel.html">
+            <i class="fas fa-table"></i> Halaman Tabel
+        </a>
+    </div>
+
+    <div class="content">
+        <h1>Data Profil Waifu</h1>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Waifu</th>
+                        <th>Dari Anime</th>
+                        <th>Quote Favorit</th>
+                        <th>Genre Favorit</th>
+                        <th>URL Profil</th>
+                        <th>Aksi</th> <!-- Tambahkan kolom untuk aksi -->
+                    </tr>
+                </thead>
+                <tbody id="waifu-table-body">
+                    <!-- Data dari localStorage akan dimasukkan di sini -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Ambil data waifu dari localStorage
+        const waifuProfiles = JSON.parse(localStorage.getItem('waifuProfiles')) || [];
+
+        const waifuTableBody = document.getElementById('waifu-table-body');
+
+        // Fungsi untuk memperbarui tabel
+        function updateTable() {
+            waifuTableBody.innerHTML = ''; // Bersihkan tabel
+            waifuProfiles.forEach((waifu, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${waifu.waifuName}</td>
+                    <td>${waifu.waifuAnime}</td>
+                    <td>${waifu.favoriteQuote}</td>
+                    <td>${waifu.genre}</td>
+                    <td><a href="${waifu.waifuUrl}" target="_blank">${waifu.waifuUrl}</a></td>
+                    <td><button class="delete-btn" onclick="deleteWaifu(${index})">Hapus</button></td>
+                `;
+                waifuTableBody.appendChild(row);
+            });
+        }
+
+        // Fungsi untuk menghapus waifu
+        function deleteWaifu(index) {
+            waifuProfiles.splice(index, 1); // Hapus waifu dari array
+            localStorage.setItem('waifuProfiles', JSON.stringify(waifuProfiles)); // Simpan kembali ke localStorage
+            updateTable(); // Perbarui tampilan tabel
+        }
+
+        // Perbarui tampilan tabel saat halaman dimuat
+        updateTable();
+    </script>
+</body>
+</html>

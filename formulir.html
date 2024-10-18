@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Waifu Saya</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        * {
+            box-sizing: border-box; 
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url(background.png);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .sidebar {
+              width: 300px; 
+              height: 100vh;
+              background-color: rgba(0, 0, 0, 0.7);
+              position: fixed; 
+              top: 0;
+              left: 0;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding-top: 20px;
+              z-index: 2; 
+            }
+
+            .sidebar a {
+              width: 90%;
+              padding: 20px; 
+              margin: 15px 0; 
+              text-align: left;
+              text-decoration: none;
+              color: white;
+              font-size: 20px; 
+              border-radius: 5px;
+              display: flex;
+              align-items: center;
+            }
+
+            .sidebar a i {
+              margin-right: 12px;
+            }
+
+            .sidebar a:hover {
+              background-color: rgba(255, 255, 255, 0.2);
+            }
+
+        .content {
+            margin-left: 320px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; 
+        }
+
+        .container {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+            flex-wrap: wrap; 
+        }
+
+        .left, .right {
+            padding: 20px; 
+            flex: 1 1 50%; 
+            max-width: 100%; 
+        }
+
+        .left {
+            background-color: #E6F0FF;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left h1 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        .left p {
+            color: #666;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .left img {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            overflow: hidden; 
+            width: 100%;
+        }
+
+        .right form {
+            width: 100%;
+            margin-top: 20px;
+            overflow: auto; 
+        }
+
+        .right form .form-group {
+            margin-bottom: 20px;
+            width: 100%; 
+        }
+
+        .right form .form-group label {
+            display: block;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .right form .form-group input[type="text"],
+        .right form .form-group input[type="email"],
+        .right form .form-group input[type="url"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .right form .form-group input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .right form .form-group .radio-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .right form .form-group .radio-group label {
+            margin-right: 20px;
+        }
+
+        .right form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .content {
+                margin-left: 0; 
+                padding: 20px;
+            }
+
+            .container {
+                flex-direction: column; 
+                align-items: center; 
+            }
+
+            .left, .right {
+                max-width: 100%; 
+                width: 100%; 
+                padding: 20px;
+            }
+
+            .left img {
+                max-width: 200px;
+            }
+
+            .right form button {
+                font-size: 14px;
+            }
+        }
+
+                @media (max-width: 576px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .content {
+                margin-left: 0;
+                padding: 10px;
+            }
+
+            .left img {
+                max-width: 150px;
+            }
+
+            .right form .form-group input[type="text"],
+            .right form .form-group input[type="email"],
+            .right form .form-group input[type="url"] {
+                padding: 8px;
+                font-size: 14px;
+            }
+
+            .right form button {
+                font-size: 12px;
+                padding: 8px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .content {
+                margin-left: 320px;
+                padding: 50px;
+            }
+
+            .container {
+                max-width: 1200px;
+                display: flex;
+                flex-wrap: nowrap;
+            }
+
+            .left, .right {
+                flex: 1;
+            }
+
+            .left img {
+                max-width: 400px;
+            }
+
+            .right form .form-group input[type="text"],
+            .right form .form-group input[type="email"],
+            .right form .form-group input[type="url"] {
+                padding: 15px;
+                font-size: 18px;
+            }
+
+            .right form button {
+                font-size: 18px;
+                padding: 12px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <div class="sidebar">
+        <a href="index.html">
+            <i class="fas fa-home"></i> Halaman Utama
+        </a>
+        <a href="form.html">
+            <i class="fas fa-clipboard"></i> Halaman Formulir
+        </a>
+        <a href="tabel.html">
+            <i class="fas fa-table"></i> Halaman Tabel
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <div class="left">
+                <h1>Profil Idola Waifu</h1>
+                <p>Buat profil idola waifu favorit kamu!</p>
+                <img src="Logo.png" alt="Waifu illustration"/>
+            </div>
+            <div class="right">
+                <form id="waifu-form">
+                    <div class="form-group">
+                        <label for="waifu-name">Nama Waifu Favorit</label>
+                        <input id="waifu-name" name="waifu-name" type="text" placeholder="Contoh: Rem" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="waifu-anime">Dari Anime</label>
+                        <input id="waifu-anime" name="waifu-anime" type="text" placeholder="Contoh: Re:Zero" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="favorite-quote">Quote Favorit</label>
+                        <input id="favorite-quote" name="favorite-quote" type="text" placeholder="Masukkan quote favorit waifu" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Genre Anime Favorit</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="genre" value="action" required/> Action</label>
+                            <label><input type="radio" name="genre" value="romance" required/> Romance</label>
+                            <label><input type="radio" name="genre" value="fantasy" required/> Fantasy</label>
+                            <label><input type="radio" name="genre" value="slice-of-life" required/> Slice of Life</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="waifu-url">URL Profil Idola Waifu</label>
+                        <input id="waifu-url" name="waifu-url" type="url" placeholder="Contoh: https://waifu.example" required/>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Simpan Profil</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('waifu-form').addEventListener('submit', function (event) {
+            event.preventDefault(); 
+
+            const waifuName = document.getElementById('waifu-name').value;
+            const waifuAnime = document.getElementById('waifu-anime').value;
+            const favoriteQuote = document.getElementById('favorite-quote').value;
+            const genre = document.querySelector('input[name="genre"]:checked').value;
+            const waifuUrl = document.getElementById('waifu-url').value;
+
+            const waifuProfile = {
+                waifuName,
+                waifuAnime,
+                favoriteQuote,
+                genre,
+                waifuUrl
+            };
+
+            
+            let waifuProfiles = JSON.parse(localStorage.getItem('waifuProfiles')) || [];
+            waifuProfiles.push(waifuProfile);
+
+            
+            localStorage.setItem('waifuProfiles', JSON.stringify(waifuProfiles));
+
+            
+            window.location.href = 'tabel.html';
+        });
+    </script>
+</body>
+</html>
