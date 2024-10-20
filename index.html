@@ -135,18 +135,23 @@
       .sidebar {
         width: 100%;
         height: auto;
-        position: static;
+        position: relative; /* Tambahkan ini */
+        z-index: 3; /* Pastikan sidebar berada di atas elemen lainnya */
       }
+
       .content {
         margin-left: 0;
         padding: 20px;
       }
+
       .content img {
         width: 100%;
       }
+
       .content h1 {
         font-size: 36px;
       }
+
       .content p {
         font-size: 18px;
       }
@@ -200,11 +205,6 @@
     </div>
   </div>
 
-   <footer style="text-align: center; padding: 20px; color: white; background-color: rgba(0, 0, 0, 0.7); position: relative; z-index: 2;">
-        <p>&copy; 2024 Hagai Kopusi Sinulingga. Semua hak dilindungi.</p>
-    </footer>
-  
-  
   <script>
     const carouselSlide = document.getElementById('carouselSlide');
     let counter = 0;
